@@ -1,0 +1,11 @@
+#include <stdio.h>
+int main(){
+  //takes user input and display it to user
+  int stringEntered;
+  printf(">");
+  stringEntered = getchar();
+
+  putchar("\n"stringEntered);
+
+  
+}
