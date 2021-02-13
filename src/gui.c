@@ -1,13 +1,13 @@
+#define LIMIT 100 
 #include <stdio.h>
 int main(){
-  //takes user input and display it to user
-
-  char userInput[100];
+  
+  char c;
   printf(">");
-  fgets(userInput,100,stdin);
-
-  printf(userInput);
-
-  return 0;
+  //While the char is not equal to the end of the line we print the char
+  while((c = getchar()) != '\n'){
+    putchar(c);
+  }
+  printf("\n");
   
 }
