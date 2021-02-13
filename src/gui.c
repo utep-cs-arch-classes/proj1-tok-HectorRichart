@@ -2,11 +2,11 @@
 #include <stdio.h>
 int main(){
   
-  char c;
+  char userInput;
   printf(">");
-  //While the char is not equal to the end of the line we print the char
-  while((c = getchar()) != '\n'){
-    putchar(c);
+  //While the userInput is not equal to the end of the line we print the chars one by one
+  while((userInput = getchar()) != '\n'){
+    putchar(userInput);
   }
   printf("\n");
   
