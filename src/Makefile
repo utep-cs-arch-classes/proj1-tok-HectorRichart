@@ -1,8 +1,14 @@
-gui.o: gui.c tokenizer.h
-	gcc -c gui.c
+main: tokenExecutable 
+
+tokenExecutable: tokenizer.o gui.o
+	cc -o tokenExecutable tokenizer.o gui.o
+
+gui.o: gui.c tokenizer.h tokenizer.c 
+	gcc -c gui.c tokenizer.c
 
 clean:
-	rm -f test *.o *~ *#
+	rm -f test *.o *~ *# 
 
-
+tokenizer.o: tokenizer.h tokenizer.c
+	gcc -c tokenizer.c tokenizer.h
 
