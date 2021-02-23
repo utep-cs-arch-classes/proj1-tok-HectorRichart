@@ -1,12 +1,9 @@
 Project 1: Tokenizer
 ====================
-# Instructions:
+This tokenizer program tokenizes a string by words using pointers and many C programming concepts, this program also maintains a history of the user string inputs and returns an array of tokens.
 
-You should document your tokenizer in this file.
+# Commands available
 
-This file is written in the refreshingly simple `markdown` text
-formatting language.
+**Make**: This command compiles all the files needed to get the tokenizer working.
 
-To learn about text formatting using markdown, we encourage you to examine 
- - [../README.md](../README.md)
- - the online [Markdown Guide](https://www.markdownguide.org/).
+**make clean**: This command cleans the src folder and deletes all the .o, # and ~ files that are made when you compile and run your C program
