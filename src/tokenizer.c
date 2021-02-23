@@ -17,7 +17,7 @@ int non_space_char(char c){
 
 char *word_start(char *str){
   char *copy = str;
-  while(space_char(*copy)){
+  while(space_char(*copy) && *str != '\0'){
     copy++;
   }
   return copy;
@@ -26,7 +26,7 @@ char *word_start(char *str){
 
 char *word_end(char *str){
   char *copy = str;
-  while(non_space_char(*copy)){
+  while(non_space_char(*copy) && *str != '\0'){
     copy++;
   }
   return copy;
@@ -35,13 +35,16 @@ char *word_end(char *str){
 int count_words(char *str){
   int counter = 0;
   while(*str != '\0'){
-    word_start(str);
-    word_end(str);
+   str = word_start(str);
+    str = word_end(str);
+    
     if(*str == '\0'){
       break;
-
+     
       }
+    counter++;
     }
-
+  return counter;
   }
 
+char *copy_str(char *inStr, short len);
