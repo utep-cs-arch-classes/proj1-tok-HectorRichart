@@ -49,15 +49,15 @@ int count_words(char *str){
   }
 
 char *copy_str(char *inStr, short len){
-  *newptr = malloc(sizeof(size+1)) //we need an extra space for the terminator character
-  while(newptr){
-    newptr[i] = ptr[i];
-    
+  char *newptr = malloc(sizeof(len+1)); //we need an extra space for the terminator character
+    int i = 0;
+  while(inStr[i]){
+    newptr[i] = inStr[i];
+    i++;
   }
+  newptr[i] = '\0';
   return newptr;
-  
 }
-
 
 
 char **tokenize(char* str){

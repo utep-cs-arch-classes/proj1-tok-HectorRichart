@@ -13,6 +13,11 @@ int main(){
   //int countt = count_words(test);
   //printf("%d\n", countt);
   //While the userInput is not equal to the end of the line we print the chars one by one
+  
+  //char *test = "Hi Hector";
+  // char *test2 = copy_str(test, 9);
+  // printf(test);
+  // printf(test2);
   while((userInput = getchar()) != '\n'){
     putchar(userInput);
   }
