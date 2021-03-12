@@ -19,7 +19,7 @@ int non_space_char(char c){
 
 char *word_start(char *str){
   char *copy = str;
-  while(space_char(*copy) && *str != '\0'){
+  while(space_char(*copy) && *copy != '\0'){
     copy++;
   }
   return copy;
@@ -28,12 +28,12 @@ char *word_start(char *str){
 
 char *word_end(char *str){
   char *copy = str;
-  while(non_space_char(*copy) && *str != '\0'){
+  while(non_space_char(*copy) && *copy != '\0'){
     copy++;
   }
   return copy;
 }
-
+/*
 int count_words(char *str)
 {
  int counter = 0;
@@ -47,10 +47,23 @@ int count_words(char *str)
 	 {
 		 break;  
 	 }
-	
 	 counter++;
   }
  return counter;
+}
+*/
+
+int count_words(char *str){
+  int count = 0;
+  char *pointer = str;
+  while(*pointer){
+    pointer = word_start(pointer);
+    pointer = word_end(pointer);
+    count++;
+
+  }
+  return count;
+
 }
 
 char *copy_str(char *inStr, short len){
@@ -69,7 +82,7 @@ char *copy_str(char *inStr, short len){
 char **tokenize(char* str){
   //calling count words method to get the number of spaces needed to tokenize
   int spacesNeeded = count_words(str);
-  printf("%d", spacesNeeded);
+
   int i = 0;
   //allocating space for the number of words +1 because we need a space for line terminator
   char **tokens = malloc( ( sizeof(char**) ) * spacesNeeded+1);
