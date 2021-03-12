@@ -33,25 +33,6 @@ char *word_end(char *str){
   }
   return copy;
 }
-/*
-int count_words(char *str)
-{
- int counter = 0;
- char *helper = str;
- while(*helper)
- {
-	 helper = word_start(helper);
-	 helper = word_end(helper);
-	 
-	 if(*helper == '\0')
-	 {
-		 break;  
-	 }
-	 counter++;
-  }
- return counter;
-}
-*/
 
 int count_words(char *str){
   int count = 0;
