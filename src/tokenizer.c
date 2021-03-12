@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "tokenizer.h"
+#include <stdio.h>
 
 int space_char(char c){
   if(c == ' ' || c == '\t' || c == '\n'){
@@ -33,25 +34,30 @@ char *word_end(char *str){
   return copy;
 }
 
-int count_words(char *str){
-  int counter = 0;
-  while(*str != '\0'){
-   str = word_start(str);
-    str = word_end(str);
-    
-    if(*str == '\0'){
-      break;
-     
-      }
-    counter++;
-    }
-  return counter;
+int count_words(char *str)
+{
+ int counter = 0;
+ char *helper = str;
+ while(*helper)
+ {
+	 helper = word_start(helper);
+	 helper = word_end(helper);
+	 
+	 if(*helper == '\0')
+	 {
+		 break;  
+	 }
+	
+	 counter++;
   }
+ return counter;
+}
 
 char *copy_str(char *inStr, short len){
-  char *newptr = malloc(sizeof(len+1)); //we need an extra space for the terminator character
-    int i = 0;
-  while(inStr[i]){
+  //we need an extra space for the terminator character
+  char *newptr = malloc(sizeof(char) * (len+1));     
+  int i = 0;
+  while(i < len){
     newptr[i] = inStr[i];
     i++;
   }
@@ -62,10 +68,11 @@ char *copy_str(char *inStr, short len){
 
 char **tokenize(char* str){
   //calling count words method to get the number of spaces needed to tokenize
-  int spacesNeeded = count_words(str); 
+  int spacesNeeded = count_words(str);
+  printf("%d", spacesNeeded);
   int i = 0;
   //allocating space for the number of words +1 because we need a space for line terminator
-  char **tokens = malloc(sizeof(spacesNeeded+1));
+  char **tokens = malloc( ( sizeof(char**) ) * spacesNeeded+1);
   //word_end gets the end of the word we are looking at and start word gets the start of str
   char *startOfWord = word_start(str);
   char *endOfWord = word_end(startOfWord);
@@ -95,7 +102,7 @@ char **tokenize(char* str){
 void print_tokens(char **tokens){
  int i = 0;
   while(*tokens[i] != '\0'){
-    printf(*tokens[i]);
+    printf("%s\n",tokens[i]);
     i++;
   }
 }

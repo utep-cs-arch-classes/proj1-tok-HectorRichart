@@ -1,26 +1,30 @@
 #include "tokenizer.h"
 #include <stdio.h>
+#include "history.h"
 
 #define LIMIT 100 
 
 int main(){
-  char userInput;
-  printf(">");
-  //char *test = "   Hi  Hello  Hector\n  Dont  ";
-  //test = word_start(test);
-  //test = word_end(test);
-  //printf(test);
-  //int countt = count_words(test);
-  //printf("%d\n", countt);
-  //While the userInput is not equal to the end of the line we print the chars one by one
   
-  //char *test = "Hi Hector";
-  // char *test2 = copy_str(test, 9);
-  // printf(test);
-  // printf(test2);
+  char word [LIMIT];
+  char userInput;
+  int wordIndex = 0;
+  printf(">");
   while((userInput = getchar()) != '\n'){
     putchar(userInput);
+    word[wordIndex] = userInput;
+    wordIndex++;
   }
-
-  printf("\n");
+ 
+  word[wordIndex] = '\0';
+ printf("\n");
+  
+ // char testing [LIMIT] = {"Hello Test This"};
+ // char *test1 = testing;
+printf("%d\n", count_words(word));
+ //char **test2 = tokenize(testing);
+ 
+//printf(print_tokens(test2));
+ 
 }
+
