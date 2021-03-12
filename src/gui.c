@@ -5,6 +5,7 @@
 
 #define LIMIT 100 
 
+//main method
 int main(){
     
   char word [LIMIT];
